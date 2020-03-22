@@ -2,7 +2,7 @@ const app = {
   title: 'Indecision App',
   subtitle: 'Put your life in the hands of a computer',
   options: []
-}
+};
 
 const onFormSubmit = (e) => {
   e.preventDefault();
@@ -19,11 +19,15 @@ const onFormSubmit = (e) => {
 const onRemoveAll = () => {
   app.options = [];
   rendedIndecisionApp();
-}
+};
+
+const onMakeDecision = () => {
+  const randomNum = Math.floor(Math.random() * app.options.length);
+  const option = app.options[randomNum]
+  alert(option);
+};
 
 const appRoot = document.getElementById('app');
-
-const numbers = [1, 2, 3];
 
 const rendedIndecisionApp = () => {
   const template = (
@@ -31,6 +35,8 @@ const rendedIndecisionApp = () => {
       <h1>{app.title}</h1>
       {app.subtitle && <p>{app.subtitle}</p>}
       <p>{(app.options && app.options.length > 0) ? "Here are your options" : "No options"}</p>
+      <button disabled={app.options && app.options.length === 0} onClick={onMakeDecision}>What should I do?</button>
+      <button onClick={onRemoveAll}>Remove All</button>
       <ol>
         {
           app.options.map((option) => <li key={option}>{option}</li>)
@@ -40,7 +46,6 @@ const rendedIndecisionApp = () => {
         <input type="text" name="option" autoComplete="off" />
         <button>Add Option</button>
       </form>
-      <button onClick={onRemoveAll}>Remove All</button>
     </div>
   );
 
