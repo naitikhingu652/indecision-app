@@ -1,0 +1,26 @@
+{
+  "name": "indecision-app",
+  "version": "1.0.0",
+  "description": "Indecision App using React",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naitikhingu652/indecision-app.git"
+  },
+  "author": "Naitik Hingu <naitikhingu@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/naitikhingu652/indecision-app/issues"
+  },
+  "homepage": "https://github.com/naitikhingu652/indecision-app#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-react": "^7.8.3",
+    "live-server": "^1.2.1"
+  }
+}
