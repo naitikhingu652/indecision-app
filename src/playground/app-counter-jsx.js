@@ -1,14 +1,14 @@
 let count = 0;
 
-const plusOne = () => {
+const handlePlusOne = () => {
   count++;
   renderCounterApp();
 };
-const minusOne = () => {
+const handleMinusOne = () => {
   count--;
   renderCounterApp();
 };
-const resetCount = () => {
+const handleResetCount = () => {
   count = 0;
   renderCounterApp();
 };
@@ -19,9 +19,9 @@ const renderCounterApp = () => {
   const counterAppTemplate = (
     <div>
       <h1>Count: {count}</h1>
-      <button onClick={plusOne}>+1</button>
-      <button onClick={minusOne}>-1</button>
-      <button onClick={resetCount}>Reset</button>
+      <button onClick={handlePlusOne}>+1</button>
+      <button onClick={handleMinusOne}>-1</button>
+      <button onClick={handleResetCount}>Reset</button>
     </div>
   );
   ReactDOM.render(counterAppTemplate, appRoot);
