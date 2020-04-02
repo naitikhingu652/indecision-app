@@ -74,9 +74,16 @@ var Action = /*#__PURE__*/function (_React$Component3) {
   }
 
   _createClass(Action, [{
+    key: "handlePick",
+    value: function handlePick() {
+      console.log('handlePick');
+    }
+  }, {
     key: "render",
     value: function render() {
-      return React.createElement("div", null, React.createElement("button", null, "What should I do?"));
+      return React.createElement("div", null, React.createElement("button", {
+        onClick: this.handlePick
+      }, "What should I do?"));
     }
   }]);
 
@@ -93,9 +100,16 @@ var Options = /*#__PURE__*/function (_React$Component4) {
   }
 
   _createClass(Options, [{
+    key: "handleRemoveAll",
+    value: function handleRemoveAll() {
+      console.log('handleRemoveAll');
+    }
+  }, {
     key: "render",
     value: function render(props) {
-      return React.createElement("div", null, this.props.options.map(function (option) {
+      return React.createElement("div", null, React.createElement("button", {
+        onClick: this.handleRemoveAll
+      }, "Remove All"), this.props.options.map(function (option) {
         return React.createElement(Option, {
           key: option,
           optionText: option
@@ -136,9 +150,26 @@ var AddOption = /*#__PURE__*/function (_React$Component6) {
   }
 
   _createClass(AddOption, [{
+    key: "handleAddOption",
+    value: function handleAddOption(e) {
+      e.preventDefault();
+      var option = e.target.elements.option.value.trim();
+
+      if (option) {
+        console.log(option);
+        e.target.elements.option.value = '';
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      return React.createElement("div", null, React.createElement("p", null, "This is from AddOption."));
+      return React.createElement("div", null, React.createElement("form", {
+        onSubmit: this.handleAddOption
+      }, React.createElement("input", {
+        type: "text",
+        name: "option",
+        autoComplete: "off"
+      }), React.createElement("button", null, "Add Option")));
     }
   }]);
 
