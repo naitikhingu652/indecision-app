@@ -10,12 +10,27 @@ class CounterApp extends React.Component {
     };
   }
 
+  componentDidMount() {
+    try {
+      const json = localStorage.getItem('count');
+      if (!isNaN(json)) {
+        this.setState(() => ({ count: parseInt(json, 10) }));
+      }
+    } catch (e) {
+
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.count !== this.state.count) {
+      localStorage.setItem('count', this.state.count);
+    }
+  }
+
   handlePlusOne() {
-    this.setState((prevState) => {
-      return {
-        count: prevState.count + 1
-      };
-    });
+    this.setState((prevState) => ({
+      count: prevState.count + 1
+    }));
   }
 
   handleMinusOne() {
