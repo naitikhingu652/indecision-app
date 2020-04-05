@@ -18,65 +18,41 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-var CounterApp = /*#__PURE__*/function (_React$Component) {
-  _inherits(CounterApp, _React$Component);
+var VisibilityToggleApp = /*#__PURE__*/function (_React$Component) {
+  _inherits(VisibilityToggleApp, _React$Component);
 
-  function CounterApp(props) {
+  function VisibilityToggleApp(props) {
     var _this;
 
-    _classCallCheck(this, CounterApp);
+    _classCallCheck(this, VisibilityToggleApp);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(CounterApp).call(this, props));
-    _this.handlePlusOne = _this.handlePlusOne.bind(_assertThisInitialized(_this));
-    _this.handleMinusOne = _this.handleMinusOne.bind(_assertThisInitialized(_this));
-    _this.handleResetCount = _this.handleResetCount.bind(_assertThisInitialized(_this));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(VisibilityToggleApp).call(this, props));
+    _this.handleToggleVisibility = _this.handleToggleVisibility.bind(_assertThisInitialized(_this));
     _this.state = {
-      count: 0
+      visibility: false
     };
     return _this;
   }
 
-  _createClass(CounterApp, [{
-    key: "handlePlusOne",
-    value: function handlePlusOne() {
+  _createClass(VisibilityToggleApp, [{
+    key: "handleToggleVisibility",
+    value: function handleToggleVisibility() {
       this.setState(function (prevState) {
         return {
-          count: prevState.count + 1
-        };
-      });
-    }
-  }, {
-    key: "handleMinusOne",
-    value: function handleMinusOne() {
-      this.setState(function (prevState) {
-        return {
-          count: prevState.count - 1
-        };
-      });
-    }
-  }, {
-    key: "handleResetCount",
-    value: function handleResetCount() {
-      this.setState(function () {
-        return {
-          count: 0
+          visibility: !prevState.visibility
         };
       });
     }
   }, {
     key: "render",
     value: function render() {
-      return React.createElement("div", null, React.createElement("h1", null, "Count: ", this.state.count), React.createElement("button", {
-        onClick: this.handlePlusOne
-      }, "+1"), React.createElement("button", {
-        onClick: this.handleMinusOne
-      }, "-1"), React.createElement("button", {
-        onClick: this.handleResetCount
-      }, "Reset"));
+      return React.createElement("div", null, React.createElement("h1", null, "Visibility Toggle"), React.createElement("button", {
+        onClick: this.handleToggleVisibility
+      }, this.state.visibility ? 'Hide Details' : 'Show Details'), this.state.visibility && React.createElement("div", null, React.createElement("p", null, "Hey. Here are some details you can now see!")));
     }
   }]);
 
-  return CounterApp;
+  return VisibilityToggleApp;
 }(React.Component);
 
-ReactDOM.render(React.createElement(CounterApp, null), document.getElementById('app'));
+ReactDOM.render(React.createElement(VisibilityToggleApp, null), document.getElementById('app'));

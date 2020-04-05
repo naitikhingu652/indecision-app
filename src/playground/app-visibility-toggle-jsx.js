@@ -5,7 +5,7 @@ const app = {
   visibility: false
 };
 
-const toggleVisibility = () => {
+const handleToggleVisibility = () => {
   app.visibility = !app.visibility;
   renderVisibilityToggleApp();
 };
@@ -14,7 +14,7 @@ const renderVisibilityToggleApp = () => {
   const template = (
     <div>
       <h1>{app.title}</h1>
-      <button onClick={toggleVisibility}>
+      <button onClick={handleToggleVisibility}>
         {app.visibility ? 'Hide Details' : 'Show Details'}
       </button>
       {app.visibility &&
