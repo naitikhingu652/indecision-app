@@ -4,6 +4,7 @@
   "description": "Indecision App using React",
   "main": "index.js",
   "scripts": {
+    "build": "npx webpack --watch",
     "serve": "npx live-server .\\public",
     "build-babel": "npx babel .\\src\\app.js --out-file=.\\public\\scripts\\app.js --presets=@babel/preset-env,@babel/preset-react --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,6 +24,8 @@
     "@babel/core": "^7.8.7",
     "@babel/preset-env": "^7.8.7",
     "@babel/preset-react": "^7.8.3",
-    "live-server": "^1.2.1"
+    "live-server": "^1.2.1",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
   }
 }
