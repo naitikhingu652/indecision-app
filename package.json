@@ -4,6 +4,8 @@
   "description": "Indecision App using React",
   "main": "index.js",
   "scripts": {
+    "serve": "npx live-server .\\public",
+    "build-babel": "npx babel .\\src\\app.js --out-file=.\\public\\scripts\\app.js --presets=@babel/preset-env,@babel/preset-react --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

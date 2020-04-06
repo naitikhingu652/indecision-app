@@ -8,11 +8,15 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -21,12 +25,14 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 var IndecisionApp = /*#__PURE__*/function (_React$Component) {
   _inherits(IndecisionApp, _React$Component);
 
+  var _super = _createSuper(IndecisionApp);
+
   function IndecisionApp(props) {
     var _this;
 
     _classCallCheck(this, IndecisionApp);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(IndecisionApp).call(this, props));
+    _this = _super.call(this, props);
     _this.handleDeleteAllOptions = _this.handleDeleteAllOptions.bind(_assertThisInitialized(_this));
     _this.handleDeleteOption = _this.handleDeleteOption.bind(_assertThisInitialized(_this));
     _this.handlePickOption = _this.handlePickOption.bind(_assertThisInitialized(_this));
@@ -107,16 +113,16 @@ var IndecisionApp = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       var subtitle = 'Put your life in the hands of a computer!';
-      return React.createElement("div", null, React.createElement(Header, {
+      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Header, {
         subtitle: subtitle
-      }), React.createElement(Action, {
+      }), /*#__PURE__*/React.createElement(Action, {
         hasOptions: this.state.options && this.state.options.length > 0,
         handlePickOption: this.handlePickOption
-      }), React.createElement(Options, {
+      }), /*#__PURE__*/React.createElement(Options, {
         options: this.state.options,
         handleDeleteAllOptions: this.handleDeleteAllOptions,
         handleDeleteOption: this.handleDeleteOption
-      }), React.createElement(AddOption, {
+      }), /*#__PURE__*/React.createElement(AddOption, {
         handleAddOption: this.handleAddOption
       }));
     }
@@ -126,7 +132,7 @@ var IndecisionApp = /*#__PURE__*/function (_React$Component) {
 }(React.Component);
 
 var Header = function Header(props) {
-  return React.createElement("div", null, React.createElement("h1", null, props.title), props.subtitle && React.createElement("h2", null, props.subtitle));
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, props.title), props.subtitle && /*#__PURE__*/React.createElement("h2", null, props.subtitle));
 };
 
 Header.defaultProps = {
@@ -134,17 +140,17 @@ Header.defaultProps = {
 };
 
 var Action = function Action(props) {
-  return React.createElement("div", null, React.createElement("button", {
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("button", {
     onClick: props.handlePickOption,
     disabled: !props.hasOptions
   }, "What should I do?"));
 };
 
 var Options = function Options(props) {
-  return React.createElement("div", null, React.createElement("button", {
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("button", {
     onClick: props.handleDeleteAllOptions
-  }, "Remove All"), props.options.length === 0 && React.createElement("p", null, "Please add an option to get started!"), props.options.map(function (option) {
-    return React.createElement(Option, {
+  }, "Remove All"), props.options.length === 0 && /*#__PURE__*/React.createElement("p", null, "Please add an option to get started!"), props.options.map(function (option) {
+    return /*#__PURE__*/React.createElement(Option, {
       key: option,
       optionText: option,
       handleDeleteOption: props.handleDeleteOption
@@ -153,7 +159,7 @@ var Options = function Options(props) {
 };
 
 var Option = function Option(props) {
-  return React.createElement("div", null, props.optionText, React.createElement("button", {
+  return /*#__PURE__*/React.createElement("div", null, props.optionText, /*#__PURE__*/React.createElement("button", {
     onClick: function onClick(e) {
       props.handleDeleteOption(props.optionText);
     }
@@ -163,12 +169,14 @@ var Option = function Option(props) {
 var AddOption = /*#__PURE__*/function (_React$Component2) {
   _inherits(AddOption, _React$Component2);
 
+  var _super2 = _createSuper(AddOption);
+
   function AddOption(props) {
     var _this2;
 
     _classCallCheck(this, AddOption);
 
-    _this2 = _possibleConstructorReturn(this, _getPrototypeOf(AddOption).call(this, props));
+    _this2 = _super2.call(this, props);
     _this2.handleAddOption = _this2.handleAddOption.bind(_assertThisInitialized(_this2));
     _this2.state = {
       errorMessage: undefined
@@ -195,17 +203,17 @@ var AddOption = /*#__PURE__*/function (_React$Component2) {
   }, {
     key: "render",
     value: function render() {
-      return React.createElement("div", null, this.state.errorMessage && React.createElement("p", null, this.state.errorMessage), React.createElement("form", {
+      return /*#__PURE__*/React.createElement("div", null, this.state.errorMessage && /*#__PURE__*/React.createElement("p", null, this.state.errorMessage), /*#__PURE__*/React.createElement("form", {
         onSubmit: this.handleAddOption
-      }, React.createElement("input", {
+      }, /*#__PURE__*/React.createElement("input", {
         type: "text",
         name: "option",
         autoComplete: "off"
-      }), React.createElement("button", null, "Add Option")));
+      }), /*#__PURE__*/React.createElement("button", null, "Add Option")));
     }
   }]);
 
   return AddOption;
 }(React.Component);
 
-ReactDOM.render(React.createElement(IndecisionApp, null), document.getElementById('app'));
+ReactDOM.render( /*#__PURE__*/React.createElement(IndecisionApp, null), document.getElementById('app'));
